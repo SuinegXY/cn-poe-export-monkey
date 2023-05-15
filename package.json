@@ -1,0 +1,24 @@
+{
+  "name": "cn-poe-export-monkey",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cn-poe-export-db": "^0.0.7",
+    "cn-poe-translator": "^0.2.0",
+    "js-base64": "^3.7.5",
+    "pako": "^2.1.0",
+    "pob-building-creater": "^0.0.7",
+    "vue": "^3.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.3.5",
+    "vite-plugin-css-injected-by-js": "^3.1.1"
+  }
+}
