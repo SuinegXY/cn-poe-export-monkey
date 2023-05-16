@@ -3,7 +3,6 @@ import { computed, reactive, ref, onMounted } from 'vue'
 import CnPoeTranslator from "cn-poe-translator/dist/index.global"
 import CnPoeExportDb from "cn-poe-export-db/dist/db.global"
 import BuildingCreater from "pob-building-creater/dist/creater.global"
-import { Base64 } from 'js-base64'
 import axios from "axios"
 
 const accountName = ref("")
@@ -134,7 +133,8 @@ async function exportBuilding() {
     const building = BuildingCreater.transform(items, passiveSkills)
 
     const compressed = window.pako.deflate(building.toString())
-    const code = Base64.fromUint8Array(compressed).replaceAll("+", "-").replaceAll("/", "_")
+
+    const code = btoa(String.fromCharCode.apply (null, compressed)).replaceAll("+", "-").replaceAll("/", "_")
 
     state.buildingCode = code
 }
