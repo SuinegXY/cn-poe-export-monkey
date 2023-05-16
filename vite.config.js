@@ -22,6 +22,7 @@ export default defineConfig({
         'cn-poe-translator/dist/index.global',
         'cn-poe-export-db/dist/db.global',
         'pob-building-creater/dist/creater.global',
+        'axios',
       ],
     },
     minify: false,
