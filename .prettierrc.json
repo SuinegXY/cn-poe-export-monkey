@@ -1,0 +1,13 @@
+{
+  "printWidth": 100,
+  "semi": false,
+  "tabWidth": 4,
+  "overrides": [
+    {
+      "files": "src/**/*.vue",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}
