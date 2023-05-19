@@ -146,12 +146,30 @@ function copyBuildingCode() {
 }
 
 function getInitialAccountName() {
-  let pattern = new RegExp("/account/view-profile/([^/?]+)")
-  let match = pattern.exec(window.location.href)
+  let accountName = getAccountNameFromProfileLink(window.location.href)
+  if (accountName !== null) {
+    return accountName
+  }
+
+  const profileLinkNode = document.querySelector("#statusBar .profile-link a")
+  if (profileLinkNode !== null) {
+    accountName = getAccountNameFromProfileLink(profileLinkNode.href)
+    if (accountName !== null) {
+      return accountName
+    }
+  }
+
+  return ""
+}
+
+const pattern = new RegExp("/account/view-profile/([^/?]+)") //reusing non-global regexp is safe
+
+function getAccountNameFromProfileLink(link) {
+  const match = pattern.exec(link)
   if (match) {
     return decodeURI(match[1])
   }
-  return ""
+  return null
 }
 
 onMounted(() => {
